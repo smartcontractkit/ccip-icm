@@ -1,0 +1,26 @@
+{
+  "name": "ccip-avalanche",
+  "version": "1.0.0",
+  "description": "Crossing over between subnets to blockchains via CCIP.",
+  "main": "index.js",
+  "repository": "https://github.com/smartcontractkit/ccip-avalanche.git",
+  "author": "Val <valentina.alexander@smartcontract.com>",
+  "license": "MIT",
+  "scripts": {
+    "setup": "forge install && forge build",
+    "test:send": "forge test --match-contract SenderTest -vv",
+    "test:broker": "forge test --match-contract BrokerTest -vv",
+    "test:receive": "forge test --match-contract ReceiverTest -vv",
+    "deploy:sender": "forge script ./script/Deploy.s.sol:DeploySender -vvv --broadcast --rpc-url ethereumSepolia",
+    "deploy:broker": "forge script ./script/Deploy.s.sol:DeployBroker -vvv --broadcast --rpc-url avalancheFuji",
+    "deploy:receiver": "forge script ./script/Deploy.s.sol:DeployReceiver -vvv --broadcast --rpc-url dispatchTestnet",
+    "sendMessage": "forge script ./script/Send.s.sol:SendMessage -vvv --broadcast --rpc-url ethereumSepolia --sig \"run(string)\" -- ",
+    "brokerMessage": "forge script ./script/Broker.s.sol:BrokerMessage -vvv --broadcast --rpc-url avalancheFuji",
+    "receiveMessage": "forge script ./script/Receive.s.sol:ReceiveMessage -vvv --broadcast --rpc-url dispatchTestnet --sig \"run(string)\" --"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.6.1",
+    "@chainlink/contracts-ccip": "^1.4.0",
+    "@chainlink/local": "github:smartcontractkit/chainlink-local"
+  }
+}

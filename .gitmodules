@@ -1,0 +1,18 @@
+[submodule "lib/forge-std"]
+	path = lib/forge-std
+	url = https://github.com/lib/forge-std
+[submodule "lib/openzeppelin-contracts"]
+	path = lib/openzeppelin-contracts
+	url = https://github.com/lib/openzeppelin-contracts
+[submodule "lib/ccip"]
+	path = lib/ccip
+	url = https://github.com/lib/ccip
+[submodule "lib/teleporter"]
+	path = lib/teleporter
+	url = https://github.com/lib/teleporter
+[submodule "lib/avalanche-interchain-token-transfer"]
+	path = lib/avalanche-interchain-token-transfer
+	url = https://github.com/lib/avalanche-interchain-token-transfer
+[submodule "lib/subnet-evm"]
+	path = lib/subnet-evm
+	url = https://github.com/lib/subnet-evm

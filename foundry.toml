@@ -1,0 +1,20 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ['node_modules', 'lib']
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+auto_detect_remappings = true
+
+# evm_version = "shanghai"
+# evm_version = "paris"
+# solc = '0.8.19'
+
+[rpc_endpoints]
+ethereumSepolia = "${SEPOLIA_RPC_URL}"
+avalancheFuji = "${FUJI_RPC_URL}"
+dispatchTestnet = "${DISPATCH_RPC_URL}"
+
+# "https://subnets.avax.network/dispatch/testnet/rpc"
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

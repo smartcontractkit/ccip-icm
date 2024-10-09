@@ -1,0 +1,18 @@
+{
+    "solidity.formatter": "forge",
+    "wake.compiler.solc.exclude_paths": [
+        "node_modules",
+        "lib"
+    ],
+    "wake.compiler.solc.remappings": [
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "forge-std/=lib/forge-std/src/",
+        "@teleporter/=lib/teleporter/contracts/teleporter/",
+        "@avalabs/subnet-evm-contracts@1.2.0/=lib/subnet-evm/contracts/",
+        "@avalanche-interchain-token-transfer/=lib/avalanche-interchain-token-transfer/contracts/src/",
+        "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        "@chainlink/contracts/=node_modules/@chainlink/contracts/",
+        "@chainlink/contracts-ccip/=node_modules/@chainlink/contracts-ccip/",
+        "@chainlink/local/=node_modules/@chainlink/local/"
+    ],
+}

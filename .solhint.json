@@ -1,0 +1,18 @@
+{  
+    "extends": "solhint:recommended",
+    "rules": {
+        "compiler-version": ["warn", "^0.8.19"],
+        "ordering": ["warning", "as-needed"],
+        "no-console": "off",
+        "var-name-mixedcase": "off",
+        "quotes": "off",
+        "func-visibility": ["warn", { "ignoreConstructors": true }],
+        "custom-errors": "off",
+        "private-vars-leading-underscore": "off",
+        "immutable-vars-naming": "off",
+        "func-name-mixedcase": "off",
+        "explicit-types": "off",
+        "one-contract-per-file": "off"
+    },
+    "ignoreFiles": ["build/**", "node_modules/**", "test/**", "lib/**"]
+}
