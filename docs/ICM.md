@@ -17,17 +17,6 @@ Make sure to adapt the destinationBlockchainID of your sending contracts to use 
 | Fuji C-Chain | 0x7fc93d85c6d62c5b2ac0b519c87010ea5294012d1e407030d6acd0021cac10d5 |
 | Dispatch | 0x9f3be606497285d0ffbb5ac9ba24aa60346a9b1812479ed66cb329f394a4b1c7 |
 
-<!-- ### Sending Message
-
-```bash
-cast send --rpc-url avalancheFuji --keystore $KEYSTORE $MESSAGE_BROKER_ADDRESS "sendMessage(address,string)" $MESSAGE_RECEIVER_ADDRESS "Hello"
-```
-
-### Verifying Message Receipt
-
-```bash
-cast call --rpc-url dispatchTestnet $MESSAGE_RECEIVER_ADDRESS "lastMessage()(string)"
-
 ---
 
 # Resources
