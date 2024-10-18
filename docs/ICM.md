@@ -50,7 +50,7 @@ cast call --rpc-url dispatchTestnet $MESSAGE_RECEIVER_ADDRESS "lastMessage()(str
 
 ## Install Avalanche CLI (Linux and Mac, PC is not yet supported)
 
-```sh
+```sh {"vsls_cell_id":"5393c200-7877-41dc-965b-9a525a303c4f"}
 curl -sSfL https://raw.githubusercontent.com/ava-labs/avalanche-cli/main/scripts/install.sh | sh -s
 ```
 
