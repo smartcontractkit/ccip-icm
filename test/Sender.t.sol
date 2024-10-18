@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import {Client, console, Enchanted} from "./Enchanted.sol";
+import {console, Enchanted} from "./Enchanted.sol";
 
 contract SenderTest is Enchanted {
 
