@@ -11,8 +11,7 @@ all: remove install build
 clean  :; forge clean
 
 # Remove Modules
-remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules 
-# && git add . && git commit -m "modules"
+remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
 
 # Install Libs
 install :; forge install https://github.com/foundry-rs/forge-std lib/forge-std --no-commit && forge install https://github.com/OpenZeppelin/openzeppelin-contracts lib/openzeppelin-contracts --no-commit && forge install https://github.com/smartcontractkit/ccip lib/ccip --no-commit && forge install https://github.com/ava-labs/teleporter lib/teleporter --no-commit && forge install https://github.com/ava-labs/avalanche-interchain-token-transfer lib/avalanche-interchain-token-transfer --no-commit && forge install https://github.com/ava-labs/subnet-evm lib/subnet-evm --no-commit
