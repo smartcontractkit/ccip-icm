@@ -5,8 +5,8 @@
 
 pragma solidity ^0.8.19;
 
-import {ITeleporterMessenger} from "@teleporter/ITeleporterMessenger.sol";
-import {ITeleporterReceiver} from "@teleporter/ITeleporterReceiver.sol";
+import {ITeleporterMessenger} from "src/icm/ITeleporterMessenger.sol";
+import {ITeleporterReceiver} from "src/icm/ITeleporterReceiver.sol";
 
 contract MessageReceiver is ITeleporterReceiver {
     struct Message {

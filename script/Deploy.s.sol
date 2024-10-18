@@ -6,7 +6,7 @@ import {MessageBroker} from "../src/MessageBroker.sol";
 import {MessageSender} from "../src/MessageSender.sol";
 import {MessageReceiver} from "../src/MessageReceiver.sol";
 
-// https://sepolia.etherscan.io/address/0x1272d0C7CBDD78d4dc2F35F6bB5B9c40fe944dA7#code
+// https://eth-sepolia.blockscout.com/address/0x1272d0C7CBDD78d4dc2F35F6bB5B9c40fe944dA7?tab=contract
 contract DeploySender is BaseScript {
 
     function run() external {

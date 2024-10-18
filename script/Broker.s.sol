@@ -3,11 +3,6 @@ pragma solidity ^0.8.19;
 
 import {BaseScript, console} from "./BaseScript.s.sol";
 import {MessageBroker} from "../src/MessageBroker.sol";
-import {
-    IWarpMessenger,
-    TeleporterFeeInfo,
-    TeleporterMessageInput
-} from "@teleporter/TeleporterMessenger.sol";
 
 contract BrokerMessage is BaseScript {
     MessageBroker messageBroker = MessageBroker(MESSAGE_BROKER_ADDRESS);
@@ -27,23 +22,21 @@ contract BrokerMessage is BaseScript {
         console.log("\u2705 | Sender:", latestSender);
         console.log("\u2705 | Message: \'%s\'", latestMessage);
 
-        console.log("\u231B | Brokering \'%s\' to Dispatch...", latestMessage);
+        // console.log("\u231B | Brokering \'%s\' to Dispatch...", latestMessage);
 
-        bytes32 brokerMessageId =
-            messageBroker.brokerMessage(
-                MESSAGE_RECEIVER_ADDRESS // _destinationAddress
-        );
+        // bytes32 brokerMessageId =
+        //     messageBroker.brokerMessage(
+        //         MESSAGE_RECEIVER_ADDRESS // _destinationAddress
+        // );
 
-        console.log("brokerMessageId: ");
-        console.logBytes32(brokerMessageId);
-        string memory messageBrokered = messageBroker.latestMessageText();
-        bytes32 latestBrokerMessageId = messageBroker.latestBrokeredId();
-        console.log("latestBrokerMessageId: ");
-        console.logBytes32(latestBrokerMessageId);
-        // bytes memory encodedMessage = abi.encode(latestMessage);
-        // console.logBytes(encodedMessage);
+        // console.log("brokerMessageId: ");
+        // console.logBytes32(brokerMessageId);
+        // string memory messageBrokered = messageBroker.latestMessageText();
+        // bytes32 latestBrokerMessageId = messageBroker.latestBrokeredId();
+        // console.log("latestBrokerMessageId: ");
+        // console.logBytes32(latestBrokerMessageId);
 
-        console.log("\u2705 | Brokered \'%s\'", messageBrokered);
+        // console.log("\u2705 | Brokered \'%s\'", messageBrokered);
 
         vm.stopBroadcast();
     }

@@ -1,57 +1,54 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import {console, Test} from "forge-std/Test.sol";
-import {CCIPLocalSimulatorFork, Register} from "@chainlink/local/src/ccip/CCIPLocalSimulatorFork.sol";
-import {IRouterClient} from "@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IRouterClient.sol";
-import {Client} from "@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.sol";
-import {BurnMintERC677Helper, IERC20} from "@chainlink/local/src/ccip/CCIPLocalSimulator.sol";
-import {ITeleporterMessenger} from "@teleporter/TeleporterMessenger.sol";
+import "forge-std/Test.sol";
+import {CCIPLocalSimulatorFork} from "@chainlink/local/src/ccip/CCIPLocalSimulatorFork.sol";
+import {ITeleporterMessenger} from "src/icm/ITeleporterMessenger.sol";
 
 import {MessageBroker} from "../src/MessageBroker.sol";
 import {MessageSender} from "../src/MessageSender.sol";
 import {MessageReceiver} from "../src/MessageReceiver.sol";
 
 contract Setup is Test {
-    bool private baseTestInitialized;
+    bool private _baseTestInitialized;
 
-    CCIPLocalSimulatorFork ccipLocalSimulatorFork;
-    uint256 sepoliaFork;
-    uint256 fujiFork;
-    uint256 dispatchFork;
+    CCIPLocalSimulatorFork public ccipLocalSimulatorFork;
+    uint256 public sepoliaFork;
+    uint256 public fujiFork;
+    uint256 public dispatchFork;
 
-    MessageSender messageSender;
-    MessageBroker messageBroker;
-    MessageReceiver messageReceiver;
-    ITeleporterMessenger teleporterMessenger;
+    MessageSender public messageSender;
+    MessageBroker public messageBroker;
+    MessageReceiver public messageReceiver;
+    ITeleporterMessenger public teleporterMessenger;
 
     // local addresses //
-    address MESSAGE_SENDER_ADDRESS;
-    address MESSAGE_BROKER_ADDRESS;
-    address MESSAGE_RECEIVER_ADDRESS;
+    address public MESSAGE_SENDER_ADDRESS;
+    address public MESSAGE_BROKER_ADDRESS;
+    address public MESSAGE_RECEIVER_ADDRESS;
 
-    address constant WARP_PRECOMPILE_ADDRESS = 0x0200000000000000000000000000000000000005;
+    address public constant WARP_PRECOMPILE_ADDRESS = 0x0200000000000000000000000000000000000005;
 
-    uint256 constant FAUCET_REQUEST_AMOUNT = 10 ether;
+    uint256 public constant FAUCET_REQUEST_AMOUNT = 10 ether;
     string public messageText = "Hai Dispatch";
 
-    string FUJI_RPC_URL = vm.envString("FUJI_RPC_URL");
-    string SEPOLIA_RPC_URL = vm.envString("SEPOLIA_RPC_URL");
-    string DISPATCH_RPC_URL = vm.envString("DISPATCH_RPC_URL");
+    string public FUJI_RPC_URL = vm.envString("FUJI_RPC_URL");
+    string public SEPOLIA_RPC_URL = vm.envString("SEPOLIA_RPC_URL");
+    string public DISPATCH_RPC_URL = vm.envString("DISPATCH_RPC_URL");
 
     // ETHEREUM SEPOLIA
-    uint256 SEPOLIA_CHAIN_ID = vm.envUint("SEPOLIA_CHAIN_ID");
-    uint64 SEPOLIA_CHAIN_SELECTOR = uint64(vm.envUint("SEPOLIA_CHAIN_SELECTOR"));
-    address SEPOLIA_ROUTER_ADDRESS = vm.envAddress("SEPOLIA_ROUTER_ADDRESS");
+    uint256 public SEPOLIA_CHAIN_ID = vm.envUint("SEPOLIA_CHAIN_ID");
+    uint64 public SEPOLIA_CHAIN_SELECTOR = uint64(vm.envUint("SEPOLIA_CHAIN_SELECTOR"));
+    address public SEPOLIA_ROUTER_ADDRESS = vm.envAddress("SEPOLIA_ROUTER_ADDRESS");
     
     // AVALANCHE FUJI
-    uint256 FUJI_CHAIN_ID = vm.envUint("FUJI_CHAIN_ID");
-    bytes32 FUJI_BLOCKCHAIN_ID = vm.envBytes32("FUJI_BLOCKCHAIN_ID");
-    uint64 FUJI_CHAIN_SELECTOR = uint64(vm.envUint("FUJI_CHAIN_SELECTOR"));
-    address FUJI_ROUTER_ADDRESS = vm.envAddress("FUJI_ROUTER_ADDRESS");
-    address TELEPORTER_MESSENGER_ADDRESS = vm.envAddress("TELEPORTER_MESSENGER_ADDRESS");
+    uint256 public FUJI_CHAIN_ID = vm.envUint("FUJI_CHAIN_ID");
+    bytes32 public FUJI_BLOCKCHAIN_ID = vm.envBytes32("FUJI_BLOCKCHAIN_ID");
+    uint64 public FUJI_CHAIN_SELECTOR = uint64(vm.envUint("FUJI_CHAIN_SELECTOR"));
+    address public FUJI_ROUTER_ADDRESS = vm.envAddress("FUJI_ROUTER_ADDRESS");
+    address public TELEPORTER_MESSENGER_ADDRESS = vm.envAddress("TELEPORTER_MESSENGER_ADDRESS");
     // DISPATCH TESTNET
-    bytes32 DISPATCH_BLOCKCHAIN_ID = vm.envBytes32("DISPATCH_BLOCKCHAIN_ID");
+    bytes32 public DISPATCH_BLOCKCHAIN_ID = vm.envBytes32("DISPATCH_BLOCKCHAIN_ID");
 
     mapping (uint => string) public network;
 
@@ -65,8 +62,8 @@ contract Setup is Test {
         setup_dispatchFork();
 
         // BaseTest.setUp is often called multiple times from tests' setUp due to inheritance.
-        if (baseTestInitialized) return;
-        baseTestInitialized = true;
+        if (_baseTestInitialized) return;
+        _baseTestInitialized = true;
     }
 
     // [SEPOLIA] CONFIGURATION //

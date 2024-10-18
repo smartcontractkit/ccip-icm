@@ -13,6 +13,3 @@
 [submodule "lib/avalanche-interchain-token-transfer"]
 	path = lib/avalanche-interchain-token-transfer
 	url = https://github.com/lib/avalanche-interchain-token-transfer
-[submodule "lib/subnet-evm"]
-	path = lib/subnet-evm
-	url = https://github.com/lib/subnet-evm

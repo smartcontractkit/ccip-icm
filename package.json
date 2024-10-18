@@ -16,7 +16,7 @@
     "deploy:receiver": "forge script ./script/Deploy.s.sol:DeployReceiver -vvv --broadcast --rpc-url dispatchTestnet",
     "sendMessage": "forge script ./script/Send.s.sol:SendMessage -vvv --broadcast --rpc-url ethereumSepolia --sig \"run(string)\" -- ",
     "brokerMessage": "forge script ./script/Broker.s.sol:BrokerMessage -vvv --broadcast --rpc-url avalancheFuji",
-    "receiveMessage": "forge script ./script/Receive.s.sol:ReceiveMessage -vvv --broadcast --rpc-url dispatchTestnet --sig \"run(string)\" --"
+    "receiveMessage": "forge script ./script/Receive.s.sol:ReceiveMessage -vvv --broadcast --rpc-url dispatchTestnet"
   },
   "dependencies": {
     "@chainlink/contracts": "^0.6.1",
