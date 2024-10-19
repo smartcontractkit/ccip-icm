@@ -53,7 +53,6 @@ if [ -f keystore/secret ]; then
         echo "Creating and setting keystore"
         mkdir keystore
         cast wallet import --private-key $PRIVATE_KEY -k keystore secret
-        # cp keystore/secret.example keystore/secret
         echo "keystore/secret created"
     fi
 fi
@@ -87,7 +86,7 @@ forge test --match-contract BrokerTest -vv
 ```
 
 ```bash {"id":"01JAHNV7H74JHNGPZZCPNJNXPM"}
-orge test --match-contract ReceiverTest -vv
+forge test --match-contract ReceiverTest -vv
 ```
 
 **In order to interact with our contracts, we first need to deploy them, which is simplified in the [`script/Deploy.s.sol`](./script/Deploy.s.sol) smart contract, so let's deploy each contract applying the deployment script for each of the following commands.**
@@ -189,8 +188,9 @@ forge script ./script/Send.s.sol:SendMessage -vvv --broadcast --rpc-url ethereum
 Once the message is finalized on the broker chain (*Fuji*), you may see the details about the latest message via the `BrokerMessage` functionality coded in [Broker.s.sol](./script/Broker.s.sol). After you have confirmed the latest message you received looks good, you may proceed with running the following script to broker the message to Dispatch:
 
 ```bash {"id":"01JAHF52E6YWX9D7J5MNNZS0H6","vsls_cell_id":"68e3c9cb-d636-495f-a817-a07ebbbadb93"}
-export MESSAGE_BROKER_ADDRESS=$(grep MESSAGE_BROKER_ADDRESS .env | cut -d '=' -f2)
-export MESSAGE_RECEIVER_ADDRESS=$(grep MESSAGE_RECEIVER_ADDRESS .env | cut -d '=' -f2)
+MESSAGE_BROKER_ADDRESS=$(grep MESSAGE_BROKER_ADDRESS .env | cut -d '=' -f2)
+MESSAGE_RECEIVER_ADDRESS=$(grep MESSAGE_RECEIVER_ADDRESS .env | cut -d '=' -f2)
+KEYSTORE=$(grep KEYSTORE .env | cut -d '=' -f2)
 
 cast send $MESSAGE_BROKER_ADDRESS --rpc-url avalancheFuji --keystore $KEYSTORE "brokerMessage(address)" $MESSAGE_RECEIVER_ADDRESS
 ```
