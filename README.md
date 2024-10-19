@@ -53,7 +53,6 @@ if [ -f keystore/secret ]; then
         echo "Creating and setting keystore"
         mkdir keystore
         cast wallet import --private-key $PRIVATE_KEY -k keystore secret
-        # cp keystore/secret.example keystore/secret
         echo "keystore/secret created"
     fi
 fi
