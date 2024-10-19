@@ -6,7 +6,7 @@ import {MessageBroker} from "../src/MessageBroker.sol";
 import {MessageSender} from "../src/MessageSender.sol";
 import {MessageReceiver} from "../src/MessageReceiver.sol";
 
-// https://eth-sepolia.blockscout.com/address/0x1272d0C7CBDD78d4dc2F35F6bB5B9c40fe944dA7?tab=contract
+// https://eth-sepolia.blockscout.com/address/0x203bF9ABB0F8ceDC5AF992E4f5C17075E63eF18d?tab=contract
 contract DeploySender is BaseScript {
 
     function run() external {
@@ -26,7 +26,7 @@ contract DeploySender is BaseScript {
     }
 }
 
-// https://testnet.snowtrace.io/address/0x0a10A4AfE5E852bdaE91678f98fE71168B048e41/contract/779672/code
+// https://testnet.snowtrace.io/address/0x17a5bEc543A4576fa41Bf4A3e05ABB7451d5b877/contract/779672/code
 contract DeployBroker is BaseScript {
 
     function run() external {
@@ -45,7 +45,7 @@ contract DeployBroker is BaseScript {
         vm.stopBroadcast();
     }
 }
-// https://779672.testnet.snowtrace.io/address/0x0d0debEFCaC433885a51B32c359Cc971522F29cD/contract/779672/code
+// https://779672.testnet.snowtrace.io/address/0x0cd2E31eb378110DDD62778E136ba664A624b1CA/contract/779672/code
 contract DeployReceiver is BaseScript {
 
     function run() external {
